@@ -1,14 +1,24 @@
 import React, { Component } from 'react';
-import WeatherLocation from './components/WeatherLocation';
+import  MuiThemeProvider  from 'material-ui/styles/MuiThemeProvider';
+import LocationList from './components/LocationList';
 import './App.css';
 
+const cities= [
+          'Buenos Aires,ar',
+          'Tokyo,JP',
+          'Barcelona,es',
+          'London,GB',
+          'Washington DC.,US' 
+];
 
 class App extends Component {
   render() {
     return (
-      <div className="App">
-        <WeatherLocation></WeatherLocation>
-      </div>
+      <MuiThemeProvider>
+        <div className="App">
+          <LocationList cities={cities}></LocationList>
+        </div>
+      </MuiThemeProvider>
     );
   }
 }
