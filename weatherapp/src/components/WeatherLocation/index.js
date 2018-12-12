@@ -47,9 +47,10 @@ class WeatherLocation extends Component {
 
     
     render = () => {
+        const {onWeatherLocationClick} = this.props;
         const {city,data} = this.state;
         return (
-        <div className="weatherLocationCont">
+        <div className="weatherLocationCont" onClick={onWeatherLocationClick}>
             <Location city={city} />
             {data ? <WeatherData data={data} /> :
                 <CircularProgress size={60} thickness={7} />}
@@ -59,6 +60,7 @@ class WeatherLocation extends Component {
 
 WeatherLocation.propTypes= {
     city:PropTypes.string,
+    onWeatherLocationClick: PropTypes.func,
 }
 
 export default WeatherLocation;
